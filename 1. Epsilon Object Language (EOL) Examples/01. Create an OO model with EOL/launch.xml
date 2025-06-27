@@ -15,18 +15,25 @@
 	For instance, consider the following ANT project: it features a target named "main," which is 
 	also designated as the default target.
 -->
-<project name="BuildOOInstance" default="main" basedir=".">
+<project name="Build_OO_Instance" default="main" basedir=".">
 	<property name="ant.file" value="${basedir}/launch.xml"/>
-	<property name="ant.project.name" value="BuildOOInstance"/>
+	<property name="ant.project.name" value="Build_OO_Instance"/>
 	<property name="ant.project.default.target" value="main"/>
+	<property name="ant.project.default.target.description" 
+		value="Build an object-oriented instance model."/>
+	<property name="ant.project.description" 
+		value="This project uses the Epsilon Object Language (EOL) to build an object-oriented 
+			instance model."/>
+	<!--
+	-->
 	<target name="loadModels">
 		<!-- Register `OO.ecore` as the Ecore metamodel used in this example. -->
 		<epsilon.emf.register file="../00. Ecore metamodels/OO.ecore"/>
-		<epsilon.emf.loadModel name="OO" modelFile="models/OOInstance.model" metamodelUri="OO" 
+		<epsilon.emf.loadModel name="OO" modelFile="models/OO_Instance.model" metamodelUri="OO" 
 			read="false" store="true"/>
 	</target>
 	<target name="main" depends="loadModels">
-		<epsilon.eol src="BuildOOInstance.eol">
+		<epsilon.eol src="Build_OO_Instance.eol">
 			<model ref="OO"/>
 		</epsilon.eol>
 	</target>
