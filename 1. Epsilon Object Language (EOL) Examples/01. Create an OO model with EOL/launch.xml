@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	The provided build script illustrates how to launch the example using Apache Ant.
+	Ensure that the External Tools Configuration specifies the Java Runtime Environment (JRE) to be 
+	used as the same as the workspace.
+		1) Click "External Tools Configuration…" from the "External Tools" dropdown.
+		2) Select the Ant build for this build script.
+		3) Click the "JRE" tab.
+		4) Select the option that reads: "Run in the same JRE as the workspace."
+		5) Click "Apply."
+		6) Click "Run."
+-->
+<!--
+	Apache Ant, in terms of concrete syntax, employs an XML-based approach.
+	For instance, consider the following ANT project: it features a target named "main," which is 
+	also designated as the default target.
+-->
+<project name="BuildOOInstance" default="main" basedir=".">
+	<property name="ant.file" value="${basedir}/launch.xml"/>
+	<property name="ant.project.name" value="BuildOOInstance"/>
+	<property name="ant.project.default.target" value="main"/>
+	<target name="loadModels">
+		<!-- Register `OO.ecore` as the Ecore metamodel used in this example. -->
+		<epsilon.emf.register file="../00. Ecore metamodels/OO.ecore"/>
+		<epsilon.emf.loadModel name="OO" modelFile="models/OOInstance.model" metamodelUri="OO" 
+			read="false" store="true"/>
+	</target>
+	<target name="main" depends="loadModels">
+		<epsilon.eol src="BuildOOInstance.eol">
+			<model ref="OO"/>
+		</epsilon.eol>
+	</target>
+</project>
