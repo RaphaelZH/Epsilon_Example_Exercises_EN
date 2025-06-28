@@ -1,32 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	* The provided build script demonstrates how to launch the example using ANT.
-	* Before proceeding, ensure that the External Tools Configuration specifies the JRE to be used as 
-	the same as the workspace.
-	* Here’s a step-by-step guide:
-		1. Click on the External Tools dropdown menu and select "External Tools Configuration…".
-		2. From the list of available options, select the ANT build for this build script.
-		3. Navigate to the JRE tab.
-		4. In the JRE tab, select the option that reads: "Run in the same JRE as the workspace."
-		5. Click the "Apply" button to save the changes.
-		6. Finally, click the "Run" button to launch the example.
-	================================================================================================
-	* In ANT, each workflow is encapsulated as a project.
-	* Each ANT project comprises a collection of targets.
-	* The default target is automatically executed when the project is executed.
-	* Each target consists of a sequence of tasks and relies on other targets that must be executed 
-	before it.
-	* An ANT task is responsible for a specific activity and can either succeed or fail.
-	* Examples of activities implemented by ANT tasks include file system management, compiler 
-	invocation, version management, and remote artifact deployment.
+	* The following build script illustrates how to launch the example via Ant.
+	* Ensure that the External Tools Configuration specifies that the JRE to be used is the same as 
+	the workspace.
+		1) Click External Tools Configuration... from the External Tools dropdown.
+		2) Select the Ant build for this build script.
+		3) Click the JRE tab.
+		4) Select the option that reads: "Run in the same JRE as the workspace."
+		5) Click Apply.
+		6) Click Run.
     ================================================================================================
-	* In terms of concrete syntax, ANT employs an XML-based syntax.
-	* The following ANT project serves as an example, showcasing a single target (the "main" target) 
-	that is also designated as the default target.
+	* In terms of concrete syntax, Ant provides an XML-based syntax.
+	* In Ant, each workflow is captured as a project.
+	* Each Ant project consists of a number of targets.
+	* The following exemplar Ant project illustrates that it contains one target (main), which is 
+	also set to be the default target.
 -->
-<project name="Build_OO_Instance" default="main" basedir=".">
+<project name="01. Create an OO model with EOL" default="main" basedir=".">
 	<property name="ant.file" value="${basedir}/launch.xml"/>
-	<property name="ant.project.name" value="Build_OO_Instance"/>
+	<property name="ant.project.name" value="01. Create an OO model with EOL"/>
 	<property name="ant.project.default.target" value="main"/>
 	<property name="ant.project.default.target.description" 
 		value="Build an object-oriented instance model."/>
@@ -34,16 +26,33 @@
 		value="This project uses the Epsilon Object Language (EOL) to build an object-oriented 
 			instance model."/>
 	<!--
+		* The one specified as the default is executed automatically when the project is executed.
+		* Each target contains a number of tasks and depends on other targets that must be executed 
+		before it.
+		* An Ant task is responsible for a distinct activity and can either succeed or fail.
 	-->
-	<target name="loadModels">
-		<!-- Register `OO.ecore` as the Ecore metamodel used in this example. -->
-		<epsilon.emf.register file="../00. Ecore metamodels/OO.ecore"/>
-		<epsilon.emf.loadModel name="OO" modelFile="models/OO_Instance.model" metamodelUri="OO" 
-			read="false" store="true"/>
-	</target>
 	<target name="main" depends="loadModels">
+		<!-- The epsilon.eol task executes an EOL module, defined using the src attribute on the 
+		models that are specified using the model nested elements. -->
 		<epsilon.eol src="Build_OO_Instance.eol">
+			<!-- Model references (using the <model> nested element) inherited from the Epsilon 
+			abstract executable module task allow model management tasks to refer by name to models 
+			previously loaded in the Ant buildfile. -->
 			<model ref="OO"/>
 		</epsilon.eol>
+	</target>
+	<target name="loadModels">
+		<!-- Register the file OO.ecore, stored in one of the sibling folders, as the Ecore 
+		metamodel used in this example. -->
+		<epsilon.emf.register file="../00. Ecore metamodels/OO.ecore"/>
+		<!--
+			* The LoadModelTask (epsilon.loadModel) loads a model from an arbitrary location (e.g., 
+			filesystem, database) and adds it to the project repository so that subsequent Epsilon 
+			tasks can query or modify it.
+			* The name attribute, one of three generic attributes the LoadModelTask defines, 
+			specifies the name of the model in the project repository.
+		-->
+		<epsilon.emf.loadModel name="OO" modelFile="models/OO_Instance.model" metamodelUri="OO" 
+			read="false" store="true"/>
 	</target>
 </project>
