@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	The provided build script illustrates how to launch the example using Apache Ant.
-	Ensure that the External Tools Configuration specifies the Java Runtime Environment (JRE) to be 
-	used as the same as the workspace.
-		1) Click "External Tools Configuration…" from the "External Tools" dropdown.
-		2) Select the Ant build for this build script.
-		3) Click the "JRE" tab.
-		4) Select the option that reads: "Run in the same JRE as the workspace."
-		5) Click "Apply."
-		6) Click "Run."
--->
-<!--
-	Apache Ant, in terms of concrete syntax, employs an XML-based approach.
-	For instance, consider the following ANT project: it features a target named "main," which is 
-	also designated as the default target.
+	* The provided build script demonstrates how to launch the example using ANT.
+	* Before proceeding, ensure that the External Tools Configuration specifies the JRE to be used as 
+	the same as the workspace.
+	* Here’s a step-by-step guide:
+		1. Click on the External Tools dropdown menu and select "External Tools Configuration…".
+		2. From the list of available options, select the ANT build for this build script.
+		3. Navigate to the JRE tab.
+		4. In the JRE tab, select the option that reads: "Run in the same JRE as the workspace."
+		5. Click the "Apply" button to save the changes.
+		6. Finally, click the "Run" button to launch the example.
+	================================================================================================
+	* In ANT, each workflow is encapsulated as a project.
+	* Each ANT project comprises a collection of targets.
+	* The default target is automatically executed when the project is executed.
+	* Each target consists of a sequence of tasks and relies on other targets that must be executed 
+	before it.
+	* An ANT task is responsible for a specific activity and can either succeed or fail.
+	* Examples of activities implemented by ANT tasks include file system management, compiler 
+	invocation, version management, and remote artifact deployment.
+    ================================================================================================
+	* In terms of concrete syntax, ANT employs an XML-based syntax.
+	* The following ANT project serves as an example, showcasing a single target (the "main" target) 
+	that is also designated as the default target.
 -->
 <project name="Build_OO_Instance" default="main" basedir=".">
 	<property name="ant.file" value="${basedir}/launch.xml"/>
