@@ -14,7 +14,7 @@ for (i in 1.to(5)){
 		
 		var class : Class = new Class;
 		class.name = "Class_" + i + "_" + j;
-		// Set the value of the ‘Abstract’ attribute to false.
+		// Set the value of the 'Abstract' attribute to false.
 		class.isAbstract = false;
 		// Place each newly created class under the corresponding package.
 		class.package = package;
@@ -23,7 +23,12 @@ for (i in 1.to(5)){
 	
 }
 
-// Assign random supertypes to the classes created
+/*
+	- The operation 'allInstances()' is the alias for the operation 'allOfKind()' (for compatibility 
+	with OCL), which returns all the elements in the model that are instances either of the type 
+	itself or of one of its subtypes.
+	- The following code block assigns random supertypes to the classes created.
+*/
 for (c in Class.allInstances) {
 	c.extends = Class.allInstances.random();
 }
