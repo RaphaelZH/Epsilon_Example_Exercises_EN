@@ -21,8 +21,8 @@
 	<property name="ant.project.name" value="01. Create an OO model with EOL"/>
 	<property name="ant.project.default.target" value="main"/>
 	<property name="ant.project.description" 
-		value="In this example, we use EOL to programmatically construct a model that conforms to an 
-		object-oriented metamodel."/>
+		value="In this example, we use EOL to programmatically modify a model that conforms to a 
+		Tree metamodel and store the modified version as a new model."/>
 	<!--
 		* The one specified as the default is executed automatically when the project is executed.
 		* Each target contains a number of tasks and depends on other targets that must be executed 
@@ -32,16 +32,24 @@
 	<target name="main" depends="loadModels">
 		<!-- The epsilon.eol task executes an EOL module, defined using the src attribute on the 
 		models that are specified using the model nested elements. -->
-		<epsilon.eol src="Build_OO_Instance.eol">
+		<epsilon.eol src="Add_Leaves.eol">
 			<!-- Model references (using the <model> nested element) inherited from the Epsilon 
 			abstract executable module task allow model management tasks to refer by name to models 
 			previously loaded in the Ant buildfile. -->
+
+			
 			<model ref="OO"/>
 		</epsilon.eol>
 	</target>
 	<target name="loadModels">
+
+
+
 		<!-- Register the file OO.ecore, stored in one of the sibling folders, as the Ecore 
 		metamodel used in this example. -->
+
+
+
 		<epsilon.emf.register file="../00. Ecore metamodels/OO.ecore"/>
 		<!--
 			* The LoadModelTask (epsilon.loadModel) loads a model from an arbitrary location (e.g., 
