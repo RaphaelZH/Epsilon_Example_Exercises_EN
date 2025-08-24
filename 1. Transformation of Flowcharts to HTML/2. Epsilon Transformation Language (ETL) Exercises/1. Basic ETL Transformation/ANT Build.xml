@@ -13,23 +13,23 @@
 -->
 
 <project default="main">
-	<epsilon.emf.register file="../../0. Flowchart Metamodel/Flowchart.ecore" />
-	<epsilon.emf.register file="../../0. Flowchart Metamodel/HTML.ecore" />
+	<epsilon.emf.register file="../../0. Metamodels/Flowchart.ecore" />
+	<epsilon.emf.register file="../../0. Metamodels/HTML.ecore" />
 
 	<target name="loadModels">
 		<epsilon.emf.loadModel name="Flowchart"
-			modelFile="../../1. Wake-up Flowchart Models/Basic Wake-up Process.model"
+			modelFile="../../1. Wake-up Flowchart Models/Basic Process.model"
 			metamodelUri="flowchart"
 			read="true" store="false" />
 
 		<epsilon.emf.loadModel name="HTML"
-			modelFile="Transformed HTML Model.model"
+			modelFile="HTML Model.model"
 			metamodelUri="HTML"
 			read="false" store="true" />
 	</target>
 
 	<target name="main" depends="loadModels">
-		<epsilon.etl src="Basic ETL Rules.etl">
+		<epsilon.etl src="Basic Rules.etl">
 			<model ref="Flowchart" />
 			<model ref="HTML" />
 		</epsilon.etl>

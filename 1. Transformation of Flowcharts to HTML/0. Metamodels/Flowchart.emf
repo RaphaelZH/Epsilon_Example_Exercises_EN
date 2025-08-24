@@ -21,13 +21,10 @@ class Transition extends NamedElement {
 }
 
 class Action extends Node {
-   
 }
 
 class Decision extends Node {
-   
 }
 
 class Subflow extends Flowchart, Node {
-   
 }
