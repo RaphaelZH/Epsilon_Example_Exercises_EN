@@ -2,291 +2,290 @@
 
 @namespace(uri="HTML", prefix="HTML")
 package HTML;
-    
-    class HTML {
-        !ordered val HEAD[1]#html head;
-        !ordered val BODY[1]#html body;
-    }
 
-    class HTMLElement {
-        !unique !ordered attr EString[1] value;
-        !ordered val HTMLElement[*] children;
-    }
+class HTML {
+    !ordered val HEAD[1]#html head;
+    !ordered val BODY[1]#html body;
+}
 
-    class HEAD extends HTMLElement {
-        !ordered val HEADElement[*]#head headElements;
-        !ordered ref HTML[1]#head html;
-    }
+class HTMLElement {
+    !unique !ordered attr EString[1] value;
+    !ordered val HTMLElement[*] children;
+}
 
-    abstract class HEADElement extends HTMLElement {
-        !ordered ref HEAD[1]#headElements head;
-    }
+class HEAD extends HTMLElement {
+    !ordered val HEADElement[*]#head headElements;
+    !ordered ref HTML[1]#head html;
+}
 
-    class LINK extends HEADElement {
-        !unique !ordered attr EString[1] rel;
-        !unique !ordered attr EString[1] title;
-        !unique !ordered attr EString[1] ahref;
-        !unique !ordered attr EString[1] type;
-    }
+abstract class HEADElement extends HTMLElement {
+    !ordered ref HEAD[1]#headElements head;
+}
 
-    class TITLE extends HEADElement {
-    }
+class LINK extends HEADElement {
+    !unique !ordered attr EString[1] rel;
+    !unique !ordered attr EString[1] title;
+    !unique !ordered attr EString[1] ahref;
+    !unique !ordered attr EString[1] type;
+}
 
-    class BODY extends HTMLElement {
-        !unique !ordered attr EString[1] background;
-        !unique !ordered attr EString[1] bgcolor;
-        !unique !ordered attr EString[1] text;
-        !unique !ordered attr EString[1] link;
-        !unique !ordered attr EString[1] alink;
-        !unique !ordered attr EString[1] vlink;
-        !ordered val BODYElement[*] bodyElements;
-        !ordered ref HTML[1]#body html;
-    }
+class TITLE extends HEADElement {
+}
 
-    abstract class BODYElement extends HTMLElement {
-    }
+class BODY extends HTMLElement {
+    !unique !ordered attr EString[1] background;
+    !unique !ordered attr EString[1] bgcolor;
+    !unique !ordered attr EString[1] text;
+    !unique !ordered attr EString[1] link;
+    !unique !ordered attr EString[1] alink;
+    !unique !ordered attr EString[1] vlink;
+    !ordered val BODYElement[*] bodyElements;
+    !ordered ref HTML[1]#body html;
+}
 
-    class H1 extends BODYElement {
-    }
+abstract class BODYElement extends HTMLElement {
+}
 
-    class H2 extends BODYElement {
-    }
+class H1 extends BODYElement {
+}
 
-    class H3 extends BODYElement {
-    }
+class H2 extends BODYElement {
+}
 
-    class H4 extends BODYElement {
-    }
+class H3 extends BODYElement {
+}
 
-    class EM extends BODYElement {
-    }
+class H4 extends BODYElement {
+}
 
-    class STRONG extends BODYElement {
-    }
+class EM extends BODYElement {
+}
 
-    class B extends BODYElement {
-    }
+class STRONG extends BODYElement {
+}
 
-    class I extends BODYElement {
-    }
+class B extends BODYElement {
+}
 
-    class TT extends BODYElement {
-    }
+class I extends BODYElement {
+}
 
-    class PRE extends BODYElement {
-    }
+class TT extends BODYElement {
+}
 
-    class BIG extends BODYElement {
-    }
+class PRE extends BODYElement {
+}
 
-    class SMALL extends BODYElement {
-    }
+class BIG extends BODYElement {
+}
 
-    class SUB extends BODYElement {
-    }
+class SMALL extends BODYElement {
+}
 
-    class SUP extends BODYElement {
-    }
+class SUB extends BODYElement {
+}
 
-    class STRIKE extends BODYElement {
-    }
+class SUP extends BODYElement {
+}
 
-    class FONT extends BODYElement {
-        !unique !ordered attr EString[1] color;
-        !unique !ordered attr EString[1] face;
-        !unique !ordered attr EString[1] size;
-    }
+class STRIKE extends BODYElement {
+}
 
-    class IMG extends BODYElement {
-        !unique !ordered attr EString[1] src;
-        !unique !ordered attr EString[1] width;
-        !unique !ordered attr EString[1] height;
-        !unique !ordered attr EString[1] alt;
-        !unique !ordered attr EString[1] align;
-        !unique !ordered attr EString[1] vspace;
-        !unique !ordered attr EString[1] hspace;
-        !unique !ordered attr EString[1] ismap;
-        !unique !ordered attr EString[1] usemap;
-        !unique !ordered attr EString[1] border;
-    }
+class FONT extends BODYElement {
+    !unique !ordered attr EString[1] color;
+    !unique !ordered attr EString[1] face;
+    !unique !ordered attr EString[1] size;
+}
 
-    class BR extends BODYElement {
-        !unique !ordered attr EString[1] clear;
-    }
+class IMG extends BODYElement {
+    !unique !ordered attr EString[1] src;
+    !unique !ordered attr EString[1] width;
+    !unique !ordered attr EString[1] height;
+    !unique !ordered attr EString[1] alt;
+    !unique !ordered attr EString[1] align;
+    !unique !ordered attr EString[1] vspace;
+    !unique !ordered attr EString[1] hspace;
+    !unique !ordered attr EString[1] ismap;
+    !unique !ordered attr EString[1] usemap;
+    !unique !ordered attr EString[1] border;
+}
 
-    class MAP extends BODYElement {
-    }
+class BR extends BODYElement {
+    !unique !ordered attr EString[1] clear;
+}
 
-    class AREA extends BODYElement {
-        !unique !ordered attr EString[1] shape;
-        !unique !ordered attr EString[1] coords;
-        !unique !ordered attr EString[1] ahref;
-    }
+class MAP extends BODYElement {
+}
 
-    class STYLE extends BODYElement {
-    }
+class AREA extends BODYElement {
+    !unique !ordered attr EString[1] shape;
+    !unique !ordered attr EString[1] coords;
+    !unique !ordered attr EString[1] ahref;
+}
 
-    class EMBED extends BODYElement {
-        !unique !ordered attr EString[1] src;
-        !unique !ordered attr EString[1] width;
-        !unique !ordered attr EString[1] height;
-        !unique !ordered attr EString[1] align;
-        !unique !ordered attr EString[1] vspace;
-        !unique !ordered attr EString[1] hspace;
-        !unique !ordered attr EString[1] border;
-    }
+class STYLE extends BODYElement {
+}
 
-    class NOEMBED extends BODYElement {
-    }
+class EMBED extends BODYElement {
+    !unique !ordered attr EString[1] src;
+    !unique !ordered attr EString[1] width;
+    !unique !ordered attr EString[1] height;
+    !unique !ordered attr EString[1] align;
+    !unique !ordered attr EString[1] vspace;
+    !unique !ordered attr EString[1] hspace;
+    !unique !ordered attr EString[1] border;
+}
 
-    class SPAN extends BODYElement {
-        !unique !ordered attr EString[1] style;
-    }
+class NOEMBED extends BODYElement {
+}
 
-    class A extends BODYElement {
-        !unique !ordered attr EString[1] ahref;
-        !unique !ordered attr EString[1] name;
-        !unique !ordered attr EString[1] ~id;
-    }
+class SPAN extends BODYElement {
+    !unique !ordered attr EString[1] style;
+}
 
-    class DIV extends BODYElement {
-        !unique !ordered attr EString[1] align;
-    }
+class A extends BODYElement {
+    !unique !ordered attr EString[1] ahref;
+    !unique !ordered attr EString[1] name;
+    !unique !ordered attr EString[1] ~id;
+}
 
-    class P extends BODYElement {
-    }
+class DIV extends BODYElement {
+    !unique !ordered attr EString[1] align;
+}
 
-    abstract class TABLEElement extends BODYElement {
-        !unique !ordered attr EString[1] bgcolor;
-        !unique !ordered attr EString[1] background;
-    }
+class P extends BODYElement {
+}
 
-    class TABLE extends TABLEElement {
-        !unique !ordered attr EString[1] border;
-        !unique !ordered attr EString[1] width;
-        !unique !ordered attr EString[1] cellspacing;
-        !unique !ordered attr EString[1] cellpadding;
-        !ordered val TR[*]#table trs;
-    }
+abstract class TABLEElement extends BODYElement {
+    !unique !ordered attr EString[1] bgcolor;
+    !unique !ordered attr EString[1] background;
+}
 
-    class TR extends TABLEElement {
-        !unique !ordered attr EString[1] valign;
-        !unique !ordered attr EString[1] align;
-        !ordered ref TABLE[1]#trs table;
-        !ordered val TD[*]#tr tds;
-    }
+class TABLE extends TABLEElement {
+    !unique !ordered attr EString[1] border;
+    !unique !ordered attr EString[1] width;
+    !unique !ordered attr EString[1] cellspacing;
+    !unique !ordered attr EString[1] cellpadding;
+    !ordered val TR[*]#table trs;
+}
 
-    class TD extends TABLEElement {
-        !unique !ordered attr EString[1] colspan;
-        !unique !ordered attr EString[1] rowspan;
-        !unique !ordered attr EString[1] valign;
-        !unique !ordered attr EString[1] align;
-        !unique !ordered attr EString[1] width;
-        !ordered ref TR[1]#tds tr;
-    }
+class TR extends TABLEElement {
+    !unique !ordered attr EString[1] valign;
+    !unique !ordered attr EString[1] align;
+    !ordered ref TABLE[1]#trs table;
+    !ordered val TD[*]#tr tds;
+}
 
-    class TH extends TD {
-    }
+class TD extends TABLEElement {
+    !unique !ordered attr EString[1] colspan;
+    !unique !ordered attr EString[1] rowspan;
+    !unique !ordered attr EString[1] valign;
+    !unique !ordered attr EString[1] align;
+    !unique !ordered attr EString[1] width;
+    !ordered ref TR[1]#tds tr;
+}
 
-    class FORM {
-        !unique !ordered attr EString[1] action;
-        !unique !ordered attr EString[1] method;
-    }
+class TH extends TD {
+}
 
-    class INPUT {
-        !unique !ordered attr EString[1] align;
-        !unique !ordered attr EString[1] maxlength;
-        !unique !ordered attr EString[1] size;
-        !unique !ordered attr EString[1] checked;
-        !unique !ordered attr EString[1] src;
-        !unique !ordered attr EString[1] inputValue;
-        !unique !ordered attr EString[1] name;
-        !unique !ordered attr EString[1] type;
-    }
+class FORM {
+    !unique !ordered attr EString[1] action;
+    !unique !ordered attr EString[1] method;
+}
 
-    class TEXTAREA {
-        !unique !ordered attr EString[1] name;
-        !unique !ordered attr EString[1] rows;
-        !unique !ordered attr EString[1] cols;
-    }
+class INPUT {
+    !unique !ordered attr EString[1] align;
+    !unique !ordered attr EString[1] maxlength;
+    !unique !ordered attr EString[1] size;
+    !unique !ordered attr EString[1] checked;
+    !unique !ordered attr EString[1] src;
+    !unique !ordered attr EString[1] inputValue;
+    !unique !ordered attr EString[1] name;
+    !unique !ordered attr EString[1] type;
+}
 
-    class SELECT {
-        !unique !ordered attr EString[1] multiple;
-        !unique !ordered attr EString[1] size;
-        !unique !ordered attr EString[1] name;
-    }
+class TEXTAREA {
+    !unique !ordered attr EString[1] name;
+    !unique !ordered attr EString[1] rows;
+    !unique !ordered attr EString[1] cols;
+}
 
-    class OPTION {
-        !unique !ordered attr EString[1] selected;
-        !unique !ordered attr EString[1] optionValue;
-    }
+class SELECT {
+    !unique !ordered attr EString[1] multiple;
+    !unique !ordered attr EString[1] size;
+    !unique !ordered attr EString[1] name;
+}
 
-    abstract class ListElement {
-        !unique !ordered attr EString[1] type;
-    }
+class OPTION {
+    !unique !ordered attr EString[1] selected;
+    !unique !ordered attr EString[1] optionValue;
+}
 
-    class OL extends ListElement {
-        !unique !ordered attr EString[1] start;
-    }
+abstract class ListElement {
+    !unique !ordered attr EString[1] type;
+}
 
-    class UL extends ListElement {
-    }
+class OL extends ListElement {
+    !unique !ordered attr EString[1] start;
+}
 
-    class LI extends ListElement {
-        !unique !ordered attr EString[1] liValue;
-    }
+class UL extends ListElement {
+}
 
-    class DL {
-    }
+class LI extends ListElement {
+    !unique !ordered attr EString[1] liValue;
+}
 
-    class DT {
-    }
+class DL {
+}
 
-    class DD {
-    }
+class DT {
+}
 
-    class APPLET {
-        !unique !ordered attr EString[1] applet;
-        !unique !ordered attr EString[1] ~class;
-        !unique !ordered attr EString[1] src;
-        !unique !ordered attr EString[1] align;
-        !unique !ordered attr EString[1] width;
-        !unique !ordered attr EString[1] height;
-    }
+class DD {
+}
 
-    class PARAM {
-        !unique !ordered attr EString[1] name;
-        !unique !ordered attr EString[1] paramValue;
-    }
+class APPLET {
+    !unique !ordered attr EString[1] applet;
+    !unique !ordered attr EString[1] ~class;
+    !unique !ordered attr EString[1] src;
+    !unique !ordered attr EString[1] align;
+    !unique !ordered attr EString[1] width;
+    !unique !ordered attr EString[1] height;
+}
 
-    class OBJECT {
-        !unique !ordered attr EString[1] classid;
-        !unique !ordered attr EString[1] ~id;
-        !unique !ordered attr EString[1] data;
-        !unique !ordered attr EString[1] type;
-        !unique !ordered attr EString[1] standby;
-    }
+class PARAM {
+    !unique !ordered attr EString[1] name;
+    !unique !ordered attr EString[1] paramValue;
+}
 
-    class FRAMESET {
-        !unique !ordered attr EString[1] rows;
-        !unique !ordered attr EString[1] cols;
-        !unique !ordered attr EString[1] framespacing;
-        !unique !ordered attr EString[1] frameborder;
-        !unique !ordered attr EString[1] border;
-    }
+class OBJECT {
+    !unique !ordered attr EString[1] classid;
+    !unique !ordered attr EString[1] ~id;
+    !unique !ordered attr EString[1] data;
+    !unique !ordered attr EString[1] type;
+    !unique !ordered attr EString[1] standby;
+}
 
-    class FRAME {
-        !unique !ordered attr EString[1] src;
-        !unique !ordered attr EString[1] name;
-        !unique !ordered attr EString[1] marginwidth;
-        !unique !ordered attr EString[1] marginheight;
-        !unique !ordered attr EString[1] scrolling;
-        !unique !ordered attr EString[1] noresize;
-    }
+class FRAMESET {
+    !unique !ordered attr EString[1] rows;
+    !unique !ordered attr EString[1] cols;
+    !unique !ordered attr EString[1] framespacing;
+    !unique !ordered attr EString[1] frameborder;
+    !unique !ordered attr EString[1] border;
+}
 
-    class NOFRAME {
-    }
+class FRAME {
+    !unique !ordered attr EString[1] src;
+    !unique !ordered attr EString[1] name;
+    !unique !ordered attr EString[1] marginwidth;
+    !unique !ordered attr EString[1] marginheight;
+    !unique !ordered attr EString[1] scrolling;
+    !unique !ordered attr EString[1] noresize;
+}
 
-    class IFRAME extends FRAME {
-    }
+class NOFRAME {
+}
 
+class IFRAME extends FRAME {
+}
