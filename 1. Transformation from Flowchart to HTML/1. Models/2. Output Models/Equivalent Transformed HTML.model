@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:HTML="HTML">
+  <HTML:H1 value="Basic Wake-up Process"/>
+  <HTML:H2 value="Wake up!"/>
+  <HTML:H2 value="Keep sleeping."/>
+  <HTML:H2 value="Get up."/>
+  <HTML:H2 value="THE BEGINNING"/>
+  <HTML:H3 value="Is it really too early?"/>
+  <HTML:DIV value="Transitions">
+    <children xsi:type="HTML:P" value="Check the time."/>
+    <children xsi:type="HTML:P" value="Yes."/>
+    <children xsi:type="HTML:P" value="Some time passes&#x2026;"/>
+    <children xsi:type="HTML:P" value="No."/>
+    <children xsi:type="HTML:P" value="Awakening starts."/>
+  </HTML:DIV>
+</xmi:XMI>
