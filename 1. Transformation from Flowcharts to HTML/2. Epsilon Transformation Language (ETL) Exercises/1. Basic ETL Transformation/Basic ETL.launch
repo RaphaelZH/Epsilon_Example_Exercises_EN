@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.epsilon.etl.eclipse.dt.launching.EtlLaunchConfigurationDelegate">
+  <booleanAttribute key="fine_grained_profiling" value="false" />
+  <listAttribute key="models">
+    <listEntry
+      value="
+            isMetamodelFileBased=false&#10;
+            name=Flowchart&#10;
+            readOnLoad=true&#10;
+            storeOnDisposal=false&#10;
+            aliases=&#10;
+            cached=true&#10;
+            fileBasedMetamodelUri=&#10;
+            metamodelUri=flowchart&#10;
+            modelUri=platform\:/resource/1. Transformation from Flowcharts to HTML/1. Models/Wake-up Process.model&#10;
+            type=EMF&#10;
+            modelFile=/1. Transformation from Flowcharts to HTML/1. Models/Wake-up Process.model&#10;
+            expand=true&#10;
+            metamodelFile=&#10;" />
+    <listEntry
+      value="
+            isMetamodelFileBased=false&#10;
+            name=HTML&#10;
+            readOnLoad=false&#10;
+            storeOnDisposal=true&#10;
+            aliases=&#10;
+            cached=true&#10;
+            fileBasedMetamodelUri=&#10;
+            metamodelUri=HTML&#10;
+            modelUri=platform\:/resource/1. Transformation from Flowcharts to HTML/2. Epsilon Transformation Language (ETL) Exercises/1. Basic ETL Transformation/HTML Model.model&#10;
+            type=EMF&#10;
+            modelFile=/1. Transformation from Flowcharts to HTML/2. Epsilon Transformation Language (ETL) Exercises/1. Basic ETL Transformation/HTML Model.model&#10;
+            expand=true&#10;
+            metamodelFile=&#10;" />
+  </listAttribute>
+  <booleanAttribute key="profile_model_loading" value="false" />
+  <booleanAttribute key="profiling_enabled" value="false" />
+  <booleanAttribute key="reset_profiler" value="false" />
+  <stringAttribute key="source"
+    value="/1. Transformation from Flowcharts to HTML/2. Epsilon Transformation Language (ETL) Exercises/1. Basic ETL Transformation/Basic Rules.etl" />
+</launchConfiguration>
