@@ -17,8 +17,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HEAD" eSuperTypes="#//HTMLElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="headElements" ordered="false"
-      upperBound="-1" eType="#//HEADElement" containment="true"
-      eOpposite="#//HEADElement/head" />
+      upperBound="-1" eType="#//HEADElement" containment="true" eOpposite="#//HEADElement/head" />
     <eStructuralFeatures xsi:type="ecore:EReference" name="html" ordered="false" lowerBound="1"
       eType="#//HTML" eOpposite="#//HTML/head" />
   </eClassifiers>
