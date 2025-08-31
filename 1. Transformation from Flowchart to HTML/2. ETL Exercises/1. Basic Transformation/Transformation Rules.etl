@@ -1,22 +1,22 @@
-rule Flowchart2H1
+rule Flowchart_to_H1
 	transform f : Flowchart!Flowchart
 	to h1 : HTML!H1 {
 	h1.value = f.name;
 }
 
-rule Action2H2
+rule Action_to_H2
 	transform a : Flowchart!Action
 	to h2 : HTML!H2 {
 	h2.value = a.name;
 }
 
-rule Decision2H3
+rule Decision_to_H3
 	transform d : Flowchart!Decision
 	to h3 : HTML!H3 {
 	h3.value = d.name;
 }
 
-rule Transition2Paragraph
+rule Transition_to_P
 	transform t : Flowchart!Transition
 	to p : HTML!P {
 	p.value = t.name;
