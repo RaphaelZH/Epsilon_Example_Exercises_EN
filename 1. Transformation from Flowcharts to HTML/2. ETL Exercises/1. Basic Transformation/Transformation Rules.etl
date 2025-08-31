@@ -16,7 +16,7 @@ rule Decision2Heading
 	h3.value = d.name;
 }
 
-rule Transition2Heading
+rule Transition2Paragraph
 	transform t : Flowchart!Transition
 	to p : HTML!P {
 	p.value = t.name;

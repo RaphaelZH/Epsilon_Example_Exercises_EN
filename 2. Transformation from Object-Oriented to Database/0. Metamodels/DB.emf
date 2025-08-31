@@ -2,7 +2,7 @@
 package DB;
 
 abstract class NamedElement {
-    attr String name;
+   attr String name;
 }
 
 class Database {
