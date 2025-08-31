@@ -1,16 +1,16 @@
-rule Class2Table
+rule Class_to_Table
 	transform class : OO!Class
 	to table : DB!Table {
 	table.name = class.name;
 }
 
-rule Attribute2Column
+rule Attribute_to_Column
 	transform attribute : OO!Attribute
 	to column : DB!Column {
 	column.name = attribute.name;
 }
 
-rule Reference2ForeignKey
+rule Reference_to_ForeignKey
 	transform reference : OO!Reference
 	to foreignkey : DB!ForeignKey {
 	foreignkey.name = reference.name;
