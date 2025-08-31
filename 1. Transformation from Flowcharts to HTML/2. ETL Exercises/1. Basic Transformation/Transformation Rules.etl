@@ -1,16 +1,16 @@
-rule Flowchart2Heading
+rule Flowchart2H1
 	transform f : Flowchart!Flowchart
 	to h1 : HTML!H1 {
 	h1.value = f.name;
 }
 
-rule Action2Heading
+rule Action2H2
 	transform a : Flowchart!Action
 	to h2 : HTML!H2 {
 	h2.value = a.name;
 }
 
-rule Decision2Heading
+rule Decision2H3
 	transform d : Flowchart!Decision
 	to h3 : HTML!H3 {
 	h3.value = d.name;

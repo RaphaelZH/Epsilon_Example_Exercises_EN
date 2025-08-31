@@ -1,23 +1,17 @@
-rule Flowchart2Heading
-	transform f : Flowchart!Flowchart
-	to h1 : HTML!H1 {
-	h1.value = f.name;
+rule Class2Table
+	transform class : OO!Class
+	to table : DB!Table {
+	table.name = class.name;
 }
 
-rule Action2Heading
-	transform a : Flowchart!Action
-	to h2 : HTML!H2 {
-	h2.value = a.name;
+rule Attribute2Column
+	transform attribute : OO!Attribute
+	to column : DB!Column {
+	column.name = attribute.name;
 }
 
-rule Decision2Heading
-	transform d : Flowchart!Decision
-	to h3 : HTML!H3 {
-	h3.value = d.name;
-}
-
-rule Transition2Heading
-	transform t : Flowchart!Transition
-	to p : HTML!P {
-	p.value = t.name;
+rule Reference2ForeignKey
+	transform reference : OO!Reference
+	to foreignkey : DB!ForeignKey {
+	foreignkey.name = reference.name;
 }
