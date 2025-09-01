@@ -13,25 +13,25 @@
 -->
 
 <project default="main">
-  <epsilon.emf.register file="../../0. Metamodels/Flowchart.ecore" />
-  <epsilon.emf.register file="../../0. Metamodels/HTML.ecore" />
+  <epsilon.emf.register file="../../0. Metamodels/OO.ecore" />
+  <epsilon.emf.register file="../../0. Metamodels/DB.ecore" />
 
   <target name="loadModels">
-    <epsilon.emf.loadModel name="Flowchart"
-      modelFile="../../1. Models/Wake-up Process.model"
-      metamodelUri="flowchart"
+    <epsilon.emf.loadModel name="OO"
+      modelFile="../../1. Models/1. Input Models/Object-Oriented Instance.model"
+      metamodelUri="OO"
       read="true" store="false" />
 
-    <epsilon.emf.loadModel name="HTML"
-      modelFile="HTML Model.model"
-      metamodelUri="HTML"
+    <epsilon.emf.loadModel name="DB"
+      modelFile="../../2. Output Models/Basic Transformed Database Instance.model"
+      metamodelUri="DB"
       read="false" store="true" />
   </target>
 
   <target name="main" depends="loadModels">
-    <epsilon.etl src="Basic Rules.etl">
-      <model ref="Flowchart" />
-      <model ref="HTML" />
+    <epsilon.etl src="Transformation Rules.etl">
+      <model ref="OO" />
+      <model ref="DB" />
     </epsilon.etl>
   </target>
 </project>

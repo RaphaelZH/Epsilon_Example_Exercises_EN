@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:DB="DB">
+  <DB:Table name="School"/>
+  <DB:Table name="Student"/>
+  <DB:Table name="Person"/>
+  <DB:Table name="Employee"/>
+  <DB:Table name="Teacher"/>
+  <DB:Table name="Class"/>
+  <DB:Column name="address"/>
+  <DB:Column name="postCodesAccepted"/>
+  <DB:Column name="grade"/>
+  <DB:Column name="details"/>
+  <DB:Column name="salary"/>
+  <DB:ForeignKey name="students"/>
+  <DB:ForeignKey name="teaches"/>
+  <DB:ForeignKey name="students"/>
+</xmi:XMI>
