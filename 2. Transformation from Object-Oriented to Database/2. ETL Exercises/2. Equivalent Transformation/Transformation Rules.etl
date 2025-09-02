@@ -3,7 +3,10 @@ rule Class_to_Table
 	to table : DB!Table {
 	
 	table.name = class.name;
-	table.columns ::= class.features;
+	// table.columns ::= class.features;
+	for (f in class.features) {
+		f.println();
+	}
 	
 }
 

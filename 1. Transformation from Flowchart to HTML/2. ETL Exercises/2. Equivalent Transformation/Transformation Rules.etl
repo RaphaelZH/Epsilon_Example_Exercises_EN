@@ -29,13 +29,13 @@ rule Flowchart_to_Div
 	div.value = "Transitions";
 	div.children ::= f.transitions;
 	
-	// The preceeding line is the same as:
-	//   div.children.addAll(f.transitions.equivalent());
-	//
-	// And also the same as:
-	//   for (t in f.transitions) {
-	//     div.children.add(t.equivalent());
-	//   }
+	//	The preceeding line is the same as:
+	//		div.children.addAll(f.transitions.equivalent());
+	//	
+	//	And also the same as:
+	//		for (t in f.transitions) {
+	//			div.children.add(t.equivalent());
+	//		}
 	
 }
 
