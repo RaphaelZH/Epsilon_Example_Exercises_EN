@@ -1,27 +1,33 @@
 rule Class_to_Table
 	transform class : OO!Class
-	to table : DB!Table {
+	to table : DB!Table, column : DB!Column, foreignkey : DB!ForeignKey {
 	
 	table.name = class.name;
-	// table.columns ::= class.features;
 	for (f in class.features) {
-		f.println();
+	
+		f.println("-----");
+	
+		if (f.type().name = "Attribute") {
+			
+			column.table = table;
+			column.name = f.name;
+			column.type = f.type.type().name;
+			column.println();
+			
+		}
+		
+		
+		else if (f.type().name = "Reference") {
+		
+			//foreignkey.parent = table;
+			foreignkey.name = f.name;
+			foreignkey.isMany = f.isMany;
+			f.println();
+		
+		}
+		
 	}
 	
 }
 
-rule Attribute_to_Column
-	transform attribute : OO!Attribute
-	to column : DB!Column {
-	
-	column.name = attribute.name;
-	
-}
 
-rule Reference_to_ForeignKey
-	transform reference : OO!Reference
-	to foreignkey : DB!ForeignKey {
-	
-	foreignkey.name = reference.name;
-	
-}
