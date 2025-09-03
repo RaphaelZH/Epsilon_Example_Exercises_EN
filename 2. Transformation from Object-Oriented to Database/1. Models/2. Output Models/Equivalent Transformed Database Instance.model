@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DB="DB">
   <DB:Database>
-    <contents xsi:type="DB:Table" name="School">
-      <columns name="School_Id" type="String"/>
-      <columns name="address" type="Datatype"/>
-      <columns name="postCodesAccepted" type="Datatype"/>
+    <contents xsi:type="DB:Table" name="School" primaryKeys="/0/@contents.0/@columns.0">
+      <columns name="school_id" type="Integer"/>
+      <columns name="address" type="String"/>
+      <columns name="students_id (ForeignKey)" type="Reference"/>
+      <columns name="postCodesAccepted" type="String"/>
     </contents>
-    <contents xsi:type="DB:Table" name="Student">
-      <columns name="Student_Id" type="String"/>
-      <columns name="grade" type="Datatype"/>
+    <contents xsi:type="DB:Table" name="Student" primaryKeys="/0/@contents.1/@columns.0">
+      <columns name="student_id" type="Integer"/>
+      <columns name="grade" type="Real"/>
     </contents>
-    <contents xsi:type="DB:Table" name="Person">
-      <columns name="Person_Id" type="String"/>
-      <columns name="details" type="Datatype"/>
+    <contents xsi:type="DB:Table" name="Person" primaryKeys="/0/@contents.2/@columns.0">
+      <columns name="person_id" type="Integer"/>
+      <columns name="details" type="String"/>
     </contents>
-    <contents xsi:type="DB:Table" name="Employee">
-      <columns name="Employee_Id" type="String"/>
-      <columns name="salary" type="Datatype"/>
+    <contents xsi:type="DB:Table" name="Employee" primaryKeys="/0/@contents.3/@columns.0">
+      <columns name="employee_id" type="Integer"/>
+      <columns name="salary" type="Real"/>
     </contents>
-    <contents xsi:type="DB:Table" name="Teacher">
-      <columns name="Teacher_Id" type="String"/>
+    <contents xsi:type="DB:Table" name="Teacher" primaryKeys="/0/@contents.4/@columns.0">
+      <columns name="teacher_id" type="Integer"/>
+      <columns name="teaches_id (ForeignKey)" type="Reference"/>
     </contents>
-    <contents xsi:type="DB:Table" name="Class">
-      <columns name="Class_Id" type="String"/>
+    <contents xsi:type="DB:Table" name="Class" primaryKeys="/0/@contents.5/@columns.0">
+      <columns name="class_id" type="Integer"/>
+      <columns name="students_id (ForeignKey)" type="Reference"/>
     </contents>
   </DB:Database>
   <DB:ForeignKey name="students" isMany="true"/>

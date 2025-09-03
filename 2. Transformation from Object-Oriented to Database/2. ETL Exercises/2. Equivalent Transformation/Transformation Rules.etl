@@ -9,18 +9,20 @@ rule Class_to_Table
 	transform class : OO!Class
 	to table : DB!Table {
 	
-	table.database = database;
-	table.name = class.name;
-	
 	var column : new DB!Column;
 	column.database = database;
 	column.table = table;
-	column.name = class.name + "_Id";
-	column.type = "String";
+	column.name = class.name.toLowerCase() + "_id";
+	column.type = "Integer";
 	table.columns.add(column);
 	
-	for (f in class.features) {
+	table.database = database;
+	table.name = class.name;
+	table.primaryKeys.add(column);
 	
+	for (f in class.features) {
+		
+		class.name.println("======     ");
 		f.println("-----   ");
 	
 		if (f.type().name = "Attribute") {
@@ -29,14 +31,28 @@ rule Class_to_Table
 			column.database = database;
 			column.table = table;
 			column.name = f.name;
-			column.type = f.type.type().name;
+			column.type = f.type.name;
+		
+			f.type.println("???");
+			
 			table.columns.add(column);
 			
 		}
 		
 		else if (f.type().name = "Reference") {
-		
+			
+			var column : new DB!Column;
+			column.database = database;
+			column.table = table;
+			column.name = f.name.toLowerCase() + "_id (ForeignKey)";	
+			column.type = f.type().name;
+			f.type.println("??   ?");
+			table.columns.add(column);
+			
+			
 			var foreignkey : new DB!ForeignKey;
+			
+			class.`extends`.println("///");
 			
 			foreignkey.parent.type().println();
 			
@@ -47,7 +63,10 @@ rule Class_to_Table
 
 			//table.primaryKeys.add(foreignkey);
 			//f.owner.println();
-			//table.columns.add(foreignkey);
+			
+			foreignkey.type().println("=.=");
+			
+			table.columns.type().println();
 			
 		}
 		
