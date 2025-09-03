@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DB="DB">
   <DB:Database>
-    <contents xsi:type="DB:Table" name="School" primaryKeys="/1">
+    <contents xsi:type="DB:Table" name="School">
+      <columns name="School_Id" type="String"/>
       <columns name="address" type="Datatype"/>
       <columns name="postCodesAccepted" type="Datatype"/>
     </contents>
     <contents xsi:type="DB:Table" name="Student">
+      <columns name="Student_Id" type="String"/>
       <columns name="grade" type="Datatype"/>
     </contents>
     <contents xsi:type="DB:Table" name="Person">
+      <columns name="Person_Id" type="String"/>
       <columns name="details" type="Datatype"/>
     </contents>
     <contents xsi:type="DB:Table" name="Employee">
+      <columns name="Employee_Id" type="String"/>
       <columns name="salary" type="Datatype"/>
     </contents>
-    <contents xsi:type="DB:Table" name="Teacher" primaryKeys="/2"/>
-    <contents xsi:type="DB:Table" name="Class" primaryKeys="/3"/>
+    <contents xsi:type="DB:Table" name="Teacher">
+      <columns name="Teacher_Id" type="String"/>
+    </contents>
+    <contents xsi:type="DB:Table" name="Class">
+      <columns name="Class_Id" type="String"/>
+    </contents>
   </DB:Database>
   <DB:ForeignKey name="students" isMany="true"/>
   <DB:ForeignKey name="teaches" isMany="true"/>

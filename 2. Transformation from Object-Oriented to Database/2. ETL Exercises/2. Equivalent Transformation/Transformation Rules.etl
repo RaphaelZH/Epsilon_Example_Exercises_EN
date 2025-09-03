@@ -1,6 +1,8 @@
 pre {
-	"Running ETL".println();
+	
+	"Running ETL…\n".println();
 	var database : new DB!Database;
+	
 }
 
 rule Class_to_Table
@@ -10,39 +12,43 @@ rule Class_to_Table
 	table.database = database;
 	table.name = class.name;
 	
+	var column : new DB!Column;
+	column.database = database;
+	column.table = table;
+	column.name = class.name + "_Id";
+	column.type = "String";
+	table.columns.add(column);
+	
 	for (f in class.features) {
 	
 		f.println("-----   ");
 	
 		if (f.type().name = "Attribute") {
-			
-			class.package.name.println();
-			
+						
 			var column : new DB!Column;
-			column.database.println("--- ");
-			//column.database = class.package.name;
+			column.database = database;
 			column.table = table;
 			column.name = f.name;
 			column.type = f.type.type().name;
 			table.columns.add(column);
-			
-			f.name.type().println();
-			column.name.type().println();
 			
 		}
 		
 		else if (f.type().name = "Reference") {
 		
 			var foreignkey : new DB!ForeignKey;
-			//foreignkey.parent = table;
+			
+			foreignkey.parent.type().println();
+			
 			foreignkey.name = f.name;
 			foreignkey.isMany = f.isMany;
 			
 			//foreignkey.child = f;
 
-			table.primaryKeys.add(foreignkey);
+			//table.primaryKeys.add(foreignkey);
 			//f.owner.println();
 			//table.columns.add(foreignkey);
+			
 		}
 		
 	}
