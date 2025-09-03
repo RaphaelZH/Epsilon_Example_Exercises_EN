@@ -1,28 +1,43 @@
 rule Class_to_Table
 	transform class : OO!Class
-	to table : DB!Table, column : DB!Column, foreignkey : DB!ForeignKey {
+	to table : DB!Table {
 	
 	table.name = class.name;
+
+	class.package.println();
+	table.database.type().println();
+	//table.database.isInstantiable().println();
+	
+	//table.database = class.package;
 	for (f in class.features) {
 	
-		f.println("-----");
+		f.println("-----   ");
 	
 		if (f.type().name = "Attribute") {
 			
+			class.package.name.println();
+			
+			var column : new DB!Column;
+			column.database.println("--- ");
+			//column.database = class.package.name;
 			column.table = table;
 			column.name = f.name;
 			column.type = f.type.type().name;
-			column.println();
+			table.columns.add(column);
 			
 		}
 		
-		
 		else if (f.type().name = "Reference") {
 		
+			var foreignkey : new DB!ForeignKey;
 			//foreignkey.parent = table;
 			foreignkey.name = f.name;
 			foreignkey.isMany = f.isMany;
-			f.println();
+			
+			//foreignkey.child = f;
+
+			table.primaryKeys.add(foreignkey);
+			//f.owner.println();
 		
 		}
 		

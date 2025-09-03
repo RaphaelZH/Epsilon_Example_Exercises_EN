@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:DB="DB">
-  <DB:Table name="School">
+  <DB:Table name="School" primaryKeys="/6">
+    <columns name="address" type="Datatype"/>
     <columns name="postCodesAccepted" type="Datatype"/>
   </DB:Table>
-  <DB:ForeignKey name="students" isMany="true"/>
   <DB:Table name="Student">
     <columns name="grade" type="Datatype"/>
   </DB:Table>
-  <DB:ForeignKey/>
   <DB:Table name="Person">
     <columns name="details" type="Datatype"/>
   </DB:Table>
-  <DB:ForeignKey/>
   <DB:Table name="Employee">
     <columns name="salary" type="Datatype"/>
   </DB:Table>
-  <DB:ForeignKey/>
-  <DB:Table name="Teacher"/>
-  <DB:Column/>
+  <DB:Table name="Teacher" primaryKeys="/7"/>
+  <DB:Table name="Class" primaryKeys="/8"/>
+  <DB:ForeignKey name="students" isMany="true"/>
   <DB:ForeignKey name="teaches" isMany="true"/>
-  <DB:Table name="Class"/>
-  <DB:Column/>
   <DB:ForeignKey name="students" isMany="true"/>
 </xmi:XMI>
