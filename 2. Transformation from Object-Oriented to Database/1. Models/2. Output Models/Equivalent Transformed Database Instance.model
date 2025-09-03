@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:DB="DB">
-  <DB:Table name="School" primaryKeys="/6">
-    <columns name="address" type="Datatype"/>
-    <columns name="postCodesAccepted" type="Datatype"/>
-  </DB:Table>
-  <DB:Table name="Student">
-    <columns name="grade" type="Datatype"/>
-  </DB:Table>
-  <DB:Table name="Person">
-    <columns name="details" type="Datatype"/>
-  </DB:Table>
-  <DB:Table name="Employee">
-    <columns name="salary" type="Datatype"/>
-  </DB:Table>
-  <DB:Table name="Teacher" primaryKeys="/7"/>
-  <DB:Table name="Class" primaryKeys="/8"/>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DB="DB">
+  <DB:Database>
+    <contents xsi:type="DB:Table" name="School" primaryKeys="/1">
+      <columns name="address" type="Datatype"/>
+      <columns name="postCodesAccepted" type="Datatype"/>
+    </contents>
+    <contents xsi:type="DB:Table" name="Student">
+      <columns name="grade" type="Datatype"/>
+    </contents>
+    <contents xsi:type="DB:Table" name="Person">
+      <columns name="details" type="Datatype"/>
+    </contents>
+    <contents xsi:type="DB:Table" name="Employee">
+      <columns name="salary" type="Datatype"/>
+    </contents>
+    <contents xsi:type="DB:Table" name="Teacher" primaryKeys="/2"/>
+    <contents xsi:type="DB:Table" name="Class" primaryKeys="/3"/>
+  </DB:Database>
   <DB:ForeignKey name="students" isMany="true"/>
   <DB:ForeignKey name="teaches" isMany="true"/>
   <DB:ForeignKey name="students" isMany="true"/>
