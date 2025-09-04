@@ -3,7 +3,7 @@
   <contents xsi:type="DB:Table" name="School" primaryKeys="//@contents.0/@columns.0">
     <columns name="school_id" type="Integer"/>
     <columns name="address" type="String"/>
-    <columns name="students_id (ForeignKey)" type=""/>
+    <columns name="students_id (ForeignKey)" type="Integer"/>
     <columns name="postCodesAccepted" type="String"/>
   </contents>
   <contents xsi:type="DB:ForeignKey" name="students_id" parent="//@contents.2/@columns.0" child="//@contents.0/@columns.2" isMany="true"/>
@@ -21,12 +21,12 @@
   </contents>
   <contents xsi:type="DB:Table" name="Teacher" primaryKeys="//@contents.5/@columns.0">
     <columns name="teacher_id" type="Integer"/>
-    <columns name="teaches_id (ForeignKey)" type=""/>
+    <columns name="teaches_id (ForeignKey)" type="Integer"/>
   </contents>
   <contents xsi:type="DB:ForeignKey" name="teaches_id" parent="//@contents.7/@columns.0" child="//@contents.5/@columns.1" isMany="true"/>
   <contents xsi:type="DB:Table" name="Class" primaryKeys="//@contents.7/@columns.0">
     <columns name="class_id" type="Integer"/>
-    <columns name="students_id (ForeignKey)" type=""/>
+    <columns name="students_id (ForeignKey)" type="Integer"/>
   </contents>
   <contents xsi:type="DB:ForeignKey" name="students_id" parent="//@contents.2/@columns.0" child="//@contents.7/@columns.1" isMany="true"/>
 </DB:Database>
