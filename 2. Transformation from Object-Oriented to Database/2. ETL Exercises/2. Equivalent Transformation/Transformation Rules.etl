@@ -32,9 +32,6 @@ rule Class_to_Table
 			column.table = table;
 			column.name = f.name;
 			column.type = f.type.name;
-		
-			f.type.println("???");
-			
 			table.columns.add(column);
 			
 		}
@@ -45,18 +42,17 @@ rule Class_to_Table
 			column.database = database;
 			column.table = table;
 			column.name = f.name.toLowerCase() + "_id (ForeignKey)";	
-			column.type = f.type().name;
-			f.type.println("??   ?");
+			column.type = "";
 			table.columns.add(column);
 			
 			
 			var foreignkey : new DB!ForeignKey;
 			
-			class.`extends`.println("///");
+			foreignkey.database = database;
+			foreignkey.name = f.name.toLowerCase() + "_id";
 			
-			foreignkey.parent.type().println();
 			
-			foreignkey.name = f.name;
+			foreignkey.child = column;
 			foreignkey.isMany = f.isMany;
 			
 			//foreignkey.child = f;
