@@ -50,24 +50,63 @@ rule Class_to_Table
 			
 			foreignkey.database = database;
 			foreignkey.name = f.name.toLowerCase() + "_id";
-			
-			
 			foreignkey.child = column;
 			foreignkey.isMany = f.isMany;
 			
-			//foreignkey.child = f;
-
-			//table.primaryKeys.add(foreignkey);
-			//f.owner.println();
+			var col_temp : new DB!Column;
+			col_temp.name = f.type.name;
 			
-			foreignkey.type().println("=.=");
+			foreignkey.parent = col_temp;
 			
-			table.columns.type().println();
+			f.name.println("feature: ");
+			f.owner.name.println("owner: ");
+			f.type.name.println("type: ");
+			
+			//for (c in package.contents) {
+			
+			//	c.name.println("class name: ");
+			
+			
+			//}
+			
+			
+			//foreignkey.type.println("type");
 			
 		}
 		
 	}
 	
+	
+	for (t in table) {
+	
+		for (col in t.columns) {
+		
+			if (col.type = "") {
+				
+				col.name.println("///");
+				
+				t.database.contents.last().println("...");
+				
+				for (t_check in table) {
+				
+					t_check.primaryKeys.first().name.println("mmm ");
+					
+					t.database.contents.last().name.println("kkk ");
+				
+					if (t.database.contents.last().name = t_check.primaryKeys.first().name) {
+					
+						t_check.primaryKeys.println("jjjj ");
+					
+					}
+				
+				}
+			
+			}
+			
+			
+		}
+		
+	}
 }
 
 
