@@ -1,7 +1,78 @@
 pre {
 	
-	"Running ETL…\n".println();
+	"\tRunning ETL…\n".println();
 	var database : new DB!Database;
+	
+}
+
+post {
+	
+	"\n\tAdjusting Foreign Keys…\n".println();
+	
+	var tables : Sequence; var foreignkeys : Sequence;
+	
+	for (content in database.contents) {
+		
+		if (content.type().name = "Table") {
+		
+			tables.add(content);
+			
+		}
+		
+		else if (content.type().name = "ForeignKey") {
+		
+			foreignkeys.add(content);
+			
+		}
+		
+	}
+	
+	tables.println("tables : ");
+	foreignkeys.println("foreignkeys : ");
+	
+	for (foreignkey_temp in foreignkeys) {
+	
+		foreignkey_temp.parent.name.println("parent");
+	
+		for (table_temp in tables) {
+			
+			if (table_temp.name = foreignkey_temp.parent.name) {
+			
+				var col_temp = foreignkey_temp.parent;
+				
+				foreignkey_temp.parent = table_temp.primaryKeys.first();
+				
+				delete col_temp;
+				
+				//foreignkey_temp.parent = table_temp.primaryKeys;
+			
+				//for (column_temp in table_temp.columns) {
+				
+				//	column_temp.println("col: ");
+					
+				//	if 
+				
+				//}
+			
+				//table_temp.println("table : :: ");
+				
+			}
+			
+		
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
 
@@ -21,9 +92,6 @@ rule Class_to_Table
 	table.primaryKeys.add(column);
 	
 	for (f in class.features) {
-		
-		class.name.println("======     ");
-		f.println("-----   ");
 	
 		if (f.type().name = "Attribute") {
 						
@@ -62,51 +130,8 @@ rule Class_to_Table
 			f.owner.name.println("owner: ");
 			f.type.name.println("type: ");
 			
-			//for (c in package.contents) {
-			
-			//	c.name.println("class name: ");
-			
-			
-			//}
-			
-			
-			//foreignkey.type.println("type");
-			
 		}
 		
 	}
-	
-	
-	for (t in table) {
-	
-		for (col in t.columns) {
-		
-			if (col.type = "") {
-				
-				col.name.println("///");
-				
-				t.database.contents.last().println("...");
-				
-				for (t_check in table) {
-				
-					t_check.primaryKeys.first().name.println("mmm ");
-					
-					t.database.contents.last().name.println("kkk ");
-				
-					if (t.database.contents.last().name = t_check.primaryKeys.first().name) {
-					
-						t_check.primaryKeys.println("jjjj ");
-					
-					}
-				
-				}
-			
-			}
-			
-			
-		}
-		
-	}
+
 }
-
-
