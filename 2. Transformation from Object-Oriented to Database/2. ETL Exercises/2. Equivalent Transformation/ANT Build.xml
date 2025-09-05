@@ -23,7 +23,7 @@
       read="true" store="false" />
 
     <epsilon.emf.loadModel name="DB"
-      modelFile="../../2. Output Models/Basic Transformed Database Instance.model"
+      modelFile="../../2. Output Models/Equivalent Transformed Database Instance.model"
       metamodelUri="DB"
       read="false" store="true" />
   </target>

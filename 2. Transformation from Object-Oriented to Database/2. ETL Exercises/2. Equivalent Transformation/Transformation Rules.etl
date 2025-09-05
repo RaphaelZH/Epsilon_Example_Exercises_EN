@@ -54,7 +54,7 @@ rule Class_to_Table
 	column.database = database;
 	column.table = table;
 	column.name = class.name.toLowerCase() + "_id";
-	column.type = "Integer";
+	column.type = "String";
 	table.columns.add(column);
 	
 	table.database = database;
