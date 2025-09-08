@@ -1,43 +1,24 @@
 class Object_Oriented:
 	def __init__(self, oo_class, *args):
-    	[%for(class in Class.all) {%]
+    	[%for (class in Class.all) {%]
 		if oo_class == "[%=class.name%]":
+			i = 0
 			self.class_name = "[%=class.name%]"
-			self.oo_name = args[0]
-			
-			[%=class.features.println(";;;")%]
-			
-			[%if (class.features.type().name = "Attribute") {%]
-			
-				[%=class.features.type().name.println("///")%]
-			
-			[%}%]
-			
-			
-			
+			self.oo_name = args[i]
+			self.attribute = {}
+			self.reference = {}
+		[%for (f in class.features) {%]
+		[%if (f.type().name = "Attribute") {%]
+			i += 1
+			self.attribute["[%=f.name%]"] = args[i]
 		[%}%]
-        #self.attribute = {}
-        #self.reference = {}
-        
-        
-
-        #self.attribute = self.get_attributes(**kwargs)
-        #self.reference = self.get_reference(**kwargs)
-	'''
-    def get_features(self, *args):
-    	
-
-        if kwargs:
-            for key, value in kwargs.items():
-                self.attribute[key] = value
-        return self.attribute
-
-    def get_reference(self, **kwargs):
-        if kwargs:
-            for key, value in kwargs.items():
-                self.reference[key] = value
-        return self.reference
-	'''
+		[%else if (f.type().name = "Reference") {%]
+			i += 1
+			self.reference["[%=f.name%]"] = args[i]
+		[%}%]
+		[%}%]
+		[%}%]
+		
 	
 def main():
     
@@ -46,6 +27,8 @@ def main():
 
     # Access attributes
     print(f"My school's name is {my_school.oo_name}.")
+    print(f"My school's address is {my_school.attribute['address']}.")
+    print(f"{my_school.reference['students']} is one of the student from my school.")
 
 if __name__ == "__main__":
     main()
