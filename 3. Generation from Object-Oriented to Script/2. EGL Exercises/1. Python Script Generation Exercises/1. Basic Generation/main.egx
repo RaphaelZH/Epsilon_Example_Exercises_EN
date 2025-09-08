@@ -5,5 +5,5 @@ rule Flowchart2Index
 	
 	template : "Generation Rules.egl"
 	
-	target : "../../website/index.txt"
+	target : "../../website/index.py"
 }

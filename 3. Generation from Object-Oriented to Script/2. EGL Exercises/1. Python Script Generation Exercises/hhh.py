@@ -1,9 +1,6 @@
 class Object_Oriented:
-    species = "Canis familiaris"  # Class attribute shared by all Dog instances
-
-    def __init__(self, type, name, **kwargs):
-        self.class_type = type
-        self.class_name = name
+    def __init__(self, oo_class, *args, **kwargs):
+        self.class_name = oo_class.name
         self.attribute = {}
         self.reference = {}
 
@@ -16,11 +13,11 @@ class Object_Oriented:
                 self.attribute[key] = value
         return self.attribute
 
-    def describe(self):
-        """
-        A method to describe the dog.
-        """
-        print(f"{self.name} is a {self.breed} and belongs to the species {Object_Oriented.species}.")
+    def get_reference(self, **kwargs):
+        if kwargs:
+            for key, value in kwargs.items():
+                self.reference[key] = value
+        return self.reference
 
 def main():
     """

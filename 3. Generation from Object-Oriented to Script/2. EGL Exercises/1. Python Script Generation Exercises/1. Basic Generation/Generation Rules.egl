@@ -1,91 +1,51 @@
-[* Generates a Java class from an object-oriented diagram. *]
-public class App {
-	
-	public static void main(String[] args) {
-		App app = new App();
-		
-		// The statement below will succeed
-		app.process("AABC"); 
-		
-		// The statement below will fail because
-		// there is no transition from A to C
-		// in the state machine
-		app.process("ACB"); 
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	[*Generate an entry process() method*]
-	public void process(String str) {
-		if (str.isEmpty()) return;
-
-		[%for(c in Class.all){%]
-		if (str.charAt(0) == '[%=c.name%]') {
-			state[%=c.name%](str.substring(1));
-			return;
-		}
+class Object_Oriented:
+	def __init__(self, oo_class, *args):
+    	[%for(class in Class.all) {%]
+		if oo_class == "[%=class.name%]":
+			self.class_name = "[%=class.name%]"
+			self.oo_name = args[0]
+			
+			[%=class.features.println(";;;")%]
+			
+			[%if (class.features.type().name = "Attribute") {%]
+			
+				[%=class.features.type().name.println("///")%]
+			
+			[%}%]
+			
+			
+			
 		[%}%]
+        #self.attribute = {}
+        #self.reference = {}
+        
+        
 
-		throw new IllegalStateException();
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	[*Generate a method for every state*]
-	[%for (c in Class.all){%]
-	public void [%=c.name%](String str) {
-	
-		[%=c.name.println("class    :  ")%]
-		[%="\n".println()%]
-		[%=c.type().println("class    :  ")%]
-		[%="\n".println()%]
-		[%=c.features.println("features :  ")%]
-		[%="\n".println()%]
-		
-		
-		if (str.isEmpty()) return;
-		
-		[%for(t in c.extendedBy){%]
-		if (str.charAt(0) == '[%=t.name%]') {
-			state[%=t.name%](str.substring(1));
-			return;
-		}
-		[%}%]
-		
-		throw new IllegalStateException();
-	}
-	
-	[%}%]
+        #self.attribute = self.get_attributes(**kwargs)
+        #self.reference = self.get_reference(**kwargs)
+	'''
+    def get_features(self, *args):
+    	
 
-}
+        if kwargs:
+            for key, value in kwargs.items():
+                self.attribute[key] = value
+        return self.attribute
+
+    def get_reference(self, **kwargs):
+        if kwargs:
+            for key, value in kwargs.items():
+                self.reference[key] = value
+        return self.reference
+	'''
+	
+def main():
+    
+    my_school = Object_Oriented("School", "UQAC", "xxx", "xxxx", "xxxx")
+
+
+    # Access attributes
+    print(f"My school's name is {my_school.oo_name}.")
+
+if __name__ == "__main__":
+    main()
