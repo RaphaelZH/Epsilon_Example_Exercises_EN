@@ -1,0 +1,178 @@
+public class App {
+	
+	public static void main(String[] args) {
+		App app = new App();
+		
+		// The statement below will succeed
+		app.process("AABC"); 
+		
+		// The statement below will fail because
+		// there is no transition from A to C
+		// in the state machine
+		app.process("ACB"); 
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public void process(String str) {
+		if (str.isEmpty()) return;
+
+		if (str.charAt(0) == 'School') {
+			stateSchool(str.substring(1));
+			return;
+		}
+		if (str.charAt(0) == 'Student') {
+			stateStudent(str.substring(1));
+			return;
+		}
+		if (str.charAt(0) == 'Person') {
+			statePerson(str.substring(1));
+			return;
+		}
+		if (str.charAt(0) == 'Employee') {
+			stateEmployee(str.substring(1));
+			return;
+		}
+		if (str.charAt(0) == 'Teacher') {
+			stateTeacher(str.substring(1));
+			return;
+		}
+		if (str.charAt(0) == 'Class') {
+			stateClass(str.substring(1));
+			return;
+		}
+
+		throw new IllegalStateException();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public void School(String str) {
+	
+		org.eclipse.emf.ecore.impl.DynamicEObjectImpl@2b28b200 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@66ac160d (name: Class) (instanceClassName: null) (abstract: false, interface: false))
+		
+		[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@6c6bb666 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@708cf357 (name: Attribute) (instanceClassName: null) (abstract: false, interface: false)), org.eclipse.emf.ecore.impl.DynamicEObjectImpl@7b6af6f7 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@35f58eca (name: Reference) (instanceClassName: null) (abstract: false, interface: false)), org.eclipse.emf.ecore.impl.DynamicEObjectImpl@5eb7e8b1 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@708cf357 (name: Attribute) (instanceClassName: null) (abstract: false, interface: false))]
+		
+		
+		
+		if (str.isEmpty()) return;
+		
+		
+		throw new IllegalStateException();
+	}
+	
+	public void Student(String str) {
+	
+		org.eclipse.emf.ecore.impl.DynamicEObjectImpl@30e1e9d5 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@66ac160d (name: Class) (instanceClassName: null) (abstract: false, interface: false))
+		
+		[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@188a129 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@708cf357 (name: Attribute) (instanceClassName: null) (abstract: false, interface: false))]
+		
+		
+		
+		if (str.isEmpty()) return;
+		
+		
+		throw new IllegalStateException();
+	}
+	
+	public void Person(String str) {
+	
+		org.eclipse.emf.ecore.impl.DynamicEObjectImpl@2df932a1 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@66ac160d (name: Class) (instanceClassName: null) (abstract: false, interface: false))
+		
+		[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@4ceab5cf (eClass: org.eclipse.emf.ecore.impl.EClassImpl@708cf357 (name: Attribute) (instanceClassName: null) (abstract: false, interface: false))]
+		
+		
+		
+		if (str.isEmpty()) return;
+		
+		if (str.charAt(0) == 'Employee') {
+			stateEmployee(str.substring(1));
+			return;
+		}
+		if (str.charAt(0) == 'Student') {
+			stateStudent(str.substring(1));
+			return;
+		}
+		
+		throw new IllegalStateException();
+	}
+	
+	public void Employee(String str) {
+	
+		org.eclipse.emf.ecore.impl.DynamicEObjectImpl@73fa52c6 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@66ac160d (name: Class) (instanceClassName: null) (abstract: false, interface: false))
+		
+		[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@373f2479 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@708cf357 (name: Attribute) (instanceClassName: null) (abstract: false, interface: false))]
+		
+		
+		
+		if (str.isEmpty()) return;
+		
+		if (str.charAt(0) == 'Teacher') {
+			stateTeacher(str.substring(1));
+			return;
+		}
+		
+		throw new IllegalStateException();
+	}
+	
+	public void Teacher(String str) {
+	
+		org.eclipse.emf.ecore.impl.DynamicEObjectImpl@53376405 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@66ac160d (name: Class) (instanceClassName: null) (abstract: false, interface: false))
+		
+		[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@4a6af761 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@35f58eca (name: Reference) (instanceClassName: null) (abstract: false, interface: false))]
+		
+		
+		
+		if (str.isEmpty()) return;
+		
+		
+		throw new IllegalStateException();
+	}
+	
+	public void Class(String str) {
+	
+		org.eclipse.emf.ecore.impl.DynamicEObjectImpl@6b27e088 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@66ac160d (name: Class) (instanceClassName: null) (abstract: false, interface: false))
+		
+		[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@25750d79 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@35f58eca (name: Reference) (instanceClassName: null) (abstract: false, interface: false))]
+		
+		
+		
+		if (str.isEmpty()) return;
+		
+		
+		throw new IllegalStateException();
+	}
+	
+
+}

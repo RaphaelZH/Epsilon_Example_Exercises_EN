@@ -13,6 +13,21 @@ public class App {
 		app.process("ACB"); 
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	[*Generate an entry process() method*]
 	public void process(String str) {
 		if (str.isEmpty()) return;
@@ -26,10 +41,39 @@ public class App {
 
 		throw new IllegalStateException();
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	[*Generate a method for every state*]
 	[%for (c in Class.all){%]
-	public void state[%=c.name%](String str) {
+	public void [%=c.name%](String str) {
+	
+		[%=c.name.println("class    :  ")%]
+		[%="\n".println()%]
+		[%=c.type().println("class    :  ")%]
+		[%="\n".println()%]
+		[%=c.features.println("features :  ")%]
+		[%="\n".println()%]
+		
+		
 		if (str.isEmpty()) return;
 		
 		[%for(t in c.extendedBy){%]
