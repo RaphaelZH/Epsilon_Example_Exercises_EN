@@ -1,0 +1,9 @@
+import 'util.eol';
+
+rule Class_to_Class
+	transform class : Class {
+	
+	template : "Generation Rule No. 1.egl"
+	
+	target : "../../0. Generated Scripts/1. Python Scripts/2. Coordinated Generation/" + class.name + ".py"
+}

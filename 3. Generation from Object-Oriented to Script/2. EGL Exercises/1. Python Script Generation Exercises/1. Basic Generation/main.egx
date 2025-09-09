@@ -1,9 +1,0 @@
-import 'util.eol';
-
-rule Flowchart2Index
-	transform class : Class {
-	
-	template : "Generation Rules.egl"
-	
-	target : "../../website/index.py"
-}
