@@ -21,14 +21,11 @@ class Object_Oriented:
 		
 	
 def main():
-    
-    my_school = Object_Oriented("School", "UQAC", "xxx", "xxxx", "xxxx")
+    my_school = Object_Oriented("School", "UQAC", "555 Bd de l'Université, Chicoutimi, QC G7H 2B1", "Labubu", "")
 
-
-    # Access attributes
     print(f"My school's name is {my_school.oo_name}.")
     print(f"My school's address is {my_school.attribute['address']}.")
-    print(f"{my_school.reference['students']} is one of the student from my school.")
+    print(f"{my_school.reference['students']} is one of the students from my school.")
 
 if __name__ == "__main__":
     main()
