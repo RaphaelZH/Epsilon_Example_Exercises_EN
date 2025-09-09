@@ -1,23 +1,19 @@
-class [%=class.name%]:
+class [%=class.name%][%if (class.`extends` != null ){%]([%=class.`extends`.name%])[%}%]:
 	def __init__(self, *args):
-		i = 0
+		[%if (class.`extends` != null) {%]
+		super().__init__()
+		self.args_counter +=1
+		[%}%]
+		[%else {%]
+		self.args_counter = 0
+		[%}%]
+		self.[%=class.name.toLowerCase()%]_id = args[self.args_counter]
 		[%for (f in class.features) {%]
-		[%if (f.type().name = "Attribute") {%]
-		self.[%=f.name%] = args[i]
 		i += 1
+		[%if (f.type().name = "Attribute") {%]
+		self.[%=f.name%] = args[self.args_counter]
 		[%}%]
 		[%else if (f.type().name = "Reference") {%]
-		self.[%=f.name%] = args[i]
-		i += 1
+		self.[%=f.name%]_id = args[self.args_counter]
 		[%}%]
 		[%}%]
-	
-def main():
-    my_school = [%=class.name%]("School", "UQAC", "555 Bd de l'Université, Chicoutimi, QC G7H 2B1", "Labubu", "")
-
-    print(f"My school's name is {my_school.oo_name}.")
-    print(f"My school's address is {my_school.attribute['address']}.")
-    print(f"{my_school.reference['students']} is one of the students from my school.")
-
-if __name__ == "__main__":
-    main()

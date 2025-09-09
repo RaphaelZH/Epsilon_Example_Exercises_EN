@@ -1,15 +1,7 @@
-class Student:
+class Student(Person):
 	def __init__(self, *args):
-		i = 0
-		self.grade = args[i]
+		super().__init__()
+		self.args_counter +=1
+		self.student_id = args[self.args_counter]
 		i += 1
-	
-def main():
-    my_school = Student("School", "UQAC", "555 Bd de l'Université, Chicoutimi, QC G7H 2B1", "Labubu", "")
-
-    print(f"My school's name is {my_school.oo_name}.")
-    print(f"My school's address is {my_school.attribute['address']}.")
-    print(f"{my_school.reference['students']} is one of the students from my school.")
-
-if __name__ == "__main__":
-    main()
+		self.grade = args[self.args_counter]
