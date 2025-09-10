@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./2. EGL Exercises/0. Generated Scripts/1. Python Scripts/2. Coordinated Generation"
+    ]
+}
