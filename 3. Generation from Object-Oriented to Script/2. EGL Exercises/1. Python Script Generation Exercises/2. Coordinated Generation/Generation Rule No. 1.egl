@@ -1,8 +1,8 @@
 [%if (class.have_super_class()){%]from [%=class.`extends`.name%] import [%=class.`extends`.name%][%}%]
 
-class [%=class.name%][%if (class.`extends` != null ){%]([%=class.`extends`.name%])[%}%]:
+class [%=class.name%][%if (class.have_super_class()){%]([%=class.`extends`.name%])[%}%]:
 	def __init__(self, *args):
-		[%if (class.`extends` != null) {%]
+		[%if (class.have_super_class()) {%]
 		super().__init__(*args)
 		self.args_counter +=1
 		[%}%]
