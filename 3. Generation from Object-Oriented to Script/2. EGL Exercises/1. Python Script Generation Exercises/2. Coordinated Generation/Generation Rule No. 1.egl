@@ -1,8 +1,8 @@
-[%if (class.have_super_class()){%]from [%=class.`extends`.name%] import [%=class.`extends`.name%][%}%]
+[%if (class.superclass()){%]from [%=class.`extends`.name%] import [%=class.`extends`.name%][%}%]
 
-class [%=class.name%][%if (class.have_super_class()){%]([%=class.`extends`.name%])[%}%]:
+class [%=class.name%][%if (class.superclass()){%]([%=class.`extends`.name%])[%}%]:
 	def __init__(self, *args):
-		[%if (class.have_super_class()) {%]
+		[%if (class.superclass()) {%]
 		super().__init__(*args)
 		self.args_counter +=1
 		[%}%]
@@ -21,7 +21,7 @@ class [%=class.name%][%if (class.have_super_class()){%]([%=class.`extends`.name%
 		[%}%]
 
 [%
-operation OO!Class have_super_class() : Boolean {
+operation OO!Class superclass() : Boolean {
 	if (self.`extends` != null) {
 		return true;
 	}
