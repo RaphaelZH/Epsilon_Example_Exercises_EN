@@ -9,3 +9,4 @@ class School:
 		self.students_id = args[self.args_counter]
 		self.args_counter += 1
 		self.postCodesAccepted = args[self.args_counter]
+

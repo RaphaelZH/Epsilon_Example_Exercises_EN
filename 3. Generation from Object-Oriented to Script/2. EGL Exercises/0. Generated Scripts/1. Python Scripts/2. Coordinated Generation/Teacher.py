@@ -6,3 +6,4 @@ class Teacher(Employee):
 		self.teacher_id = args[self.args_counter]
 		self.args_counter += 1
 		self.teaches_id = args[self.args_counter]
+
