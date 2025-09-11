@@ -1,4 +1,5 @@
 from Person import Person
+
 class Employee(Person):
 	def __init__(self, *args):
 		super().__init__(*args)

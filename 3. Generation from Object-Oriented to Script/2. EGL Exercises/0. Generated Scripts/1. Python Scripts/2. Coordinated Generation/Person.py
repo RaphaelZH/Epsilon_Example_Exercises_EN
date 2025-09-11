@@ -1,4 +1,3 @@
-
 class Person:
 	def __init__(self, *args):
 		self.args_counter = 0

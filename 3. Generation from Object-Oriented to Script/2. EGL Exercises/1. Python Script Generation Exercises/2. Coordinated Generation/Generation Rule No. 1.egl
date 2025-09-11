@@ -1,5 +1,6 @@
-[%if (class.superclass()){%]from [%=class.`extends`.name%] import [%=class.`extends`.name%][%}%]
+[%if (class.superclass()){%]from [%=class.`extends`.name%] import [%=class.`extends`.name%]
 
+[%}%]
 class [%=class.name%][%if (class.superclass()){%]([%=class.`extends`.name%])[%}%]:
 	def __init__(self, *args):
 		[%if (class.superclass()) {%]
